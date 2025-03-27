@@ -1,7 +1,8 @@
-FROM docker.io/alpine:latest
+FROM docker.io/alpine:3.21.3
 
 # install php84(,-fpm) and bash packages
 RUN apk --no-cache add php84 php84-fpm bash
+RUN ln -s /usr/bin/php84 /usr/bin/php
 # address CVE-2022-3996
 RUN apk --no-cache upgrade libssl3 libcrypto3
 
